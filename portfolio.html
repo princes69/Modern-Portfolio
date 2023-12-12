@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="portstyle.css">  <title>Prince's  - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href='https://unpkg.com/css.gg@2.0.0/icons/css/sun.css' rel='stylesheet'>
+  <link id="theme-style" rel="stylesheet" href="portstylelight.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  ...
+
+  <link rel="shortcut icon" type="image/jpg" href="Favicon_Image_Location"/>
+...
+<style>
+.theme-tog button {
+  background-color: transparent;
+  color: #b09a9a;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.theme-tog button i {
+  transition: filter 0.3s ease; /* Add transition for a smooth effect */
+}
+
+.theme-tog button:hover i {
+  filter: brightness(1.5); /* Adjust the brightness to control the glow effect */
+}
+
+</style>
+
+</head>
+<body>
+  <div>
+    <a href="#home" style="font-family: 'Sans-serif'; font-size: 20px;  " class="nav-logo">Prince Sablania</a>
+    <nav>
+       
+        <ul class="nav-items" style="list-style-type: none;">
+          <li><a href="#" data-text="Home"><i class="fas fa-home"></i></a></li>
+        <li><a href="#" data-text="About"><i class="fas fa-user"></i></a></li>
+        <li><a href="#" data-text="Skills"><i class="fas fa-cogs"></i></a></li> 
+        <li><a href="#" data-text="Projects"><i class="fas fa-briefcase"></i></a></li>
+        <li><a href="#" data-text="Contact"><i class="fas fa-envelope"></i></a></li>
+      </ul>
+       
+       
+    </nav>
+  </div>
+  <div class="theme-tog"  style=" position: fixed; top: 22px;  left: 1200px; z-index: 1000;">
+    <button onclick="togTheme()">
+      <i class="ti ti-moon"></i> <!-- Moon icon -->
+      <i class="ti ti-brightness-up" style="display:none;"></i> <!-- Sun icon initially hidden -->
+      
+    </button>
+  </div>
+</div>
+
+
+
+<script>
+  function togTheme() {
+    const themeStyleLink = document.getElementById('theme-style');
+    const currentTheme = themeStyleLink.getAttribute('href');
+    const newTheme = currentTheme.includes('light') ? 'portsyle.css' : 'portstylelight.css';
+    themeStyleLink.setAttribute('href', newTheme);
+
+    // Toggle visibility of icons
+    const moonIcon = document.querySelector('.ti-moon');
+    const sunIcon = document.querySelector('.ti-brightness-up');
+    if (currentTheme.includes('light')) {
+      moonIcon.style.display = 'inline-block';
+      sunIcon.style.display = 'none';
+    } else {
+      moonIcon.style.display = 'none';
+      sunIcon.style.display = 'inline-block';
+    }
+  }
+
+  function showHandCursor() {
+    document.querySelector('.theme-tog button').style.cursor = 'pointer';
+  }
+
+  function hideHandCursor() {
+    document.querySelector('.theme-tog button').style.cursor = 'default';
+  }
+</script>
+
+
+</body>
+</html>
